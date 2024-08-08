@@ -4,18 +4,18 @@ import React, { act } from 'react';
 import { Tweet } from './';
 
 describe('utils', () => {
-	beforeEach(() => {
-		(window as any).addIntersectionObserver();
-	});
+  beforeEach(() => {
+    (window as any).addIntersectionObserver();
+  });
 
-	test('it calls twttr.widgets.load', () => {
-		render(<Tweet tweetLink="PaulieScanlon/status/1232982448310497286" />);
+  test('it calls twttr.widgets.load', () => {
+    render(<Tweet tweetLink="PaulieScanlon/status/1232982448310497286" />);
 
-		act(() => {
-			(window as any).triggerGeneralObserver();
-			return undefined;
-		});
+    act(() => {
+      (window as any).triggerGeneralObserver();
+      return undefined;
+    });
 
-		expect((window as any).twttr.widgets.load).toBeCalledTimes(1);
-	});
+    expect((window as any).twttr.widgets.load).toBeCalledTimes(1);
+  });
 });
