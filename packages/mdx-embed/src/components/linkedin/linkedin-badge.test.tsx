@@ -4,19 +4,19 @@ import React, { act } from 'react';
 import { LinkedInBadge } from '.';
 
 describe('<LinkedInBadge />', () => {
-	beforeEach(() => {
-		(window as any).addIntersectionObserver();
-	});
+  beforeEach(() => {
+    (window as any).addIntersectionObserver();
+  });
 
-	test('it renders the component', () => {
-		const username = 'pauliescanlon';
-		render(<LinkedInBadge username={username} />);
+  test('it renders the component', () => {
+    const username = 'pauliescanlon';
+    render(<LinkedInBadge username={username} />);
 
-		act(() => {
-			(window as any).triggerGeneralObserver();
-			return undefined;
-		});
+    act(() => {
+      (window as any).triggerGeneralObserver();
+      return undefined;
+    });
 
-		expect(screen.getByTestId('linkedin-badge')).toBeDefined();
-	});
+    expect(screen.getByTestId('linkedin-badge')).toBeDefined();
+  });
 });
